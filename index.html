@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Villete - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/eb164d029f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="header">
+    <div class="container">
+      <nav>
+        <img src="images/logo.png" class="logo">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-text">
+        <h1>Hi!, I am Daniel <span>Villete</span></h1>
+        <p>Information Technology | 22 years old | Cavite, Philippines</p>
+        <p>a fresh graduate from Cavite State University </p>
+      </div>
+    </div>
+  </div>
+<!-- --ABOUT-- -->
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="about-col-1">
+        <img src="images/image2.jpg">
+      </div>  
+      <div class="about-col-2">
+        <h1 class="sub-title">About me</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, soluta? Earum fugit assumenda, eius molestiae sint dolorem aut doloremque quos, amet incidunt blanditiis quidem eveniet necessitatibus a voluptate, doloribus qui?</p>
+        <div class="tab-titles">
+          <p class="tab-links active-link " onclick="opentab('Education')">Education</p>
+          <p class="tab-links" onclick="opentab('Skills')">Skills</p>
+          <p class="tab-links" onclick="opentab('Experience')">Experience</p>
+        </div>
+        <div class="tab-contents active-tab" id="Education">
+          <ul>
+            <li><span>Education</span><br>Cavite State University</li>
+            <li><span>Information Technology</span><br>2019-2025</li>
+          </ul>
+        </div>
+        <div class="tab-contents bullet" id="Skills">
+          <ul>
+            <li><span>IT</span><br>Designing Web/App/System Interfaces</li>
+            <li>Programming in Python</li>
+            <li>Programming in HTML, CSS, PHP</li>
+            <li>Adobe Photoshop / Canva </li>
+            <li>Knowledgeable of Microsoft word, Powerpoint, and Excel</li>
+            <li><span>Personal</span><br>Customer Servicing</li>
+            <li>English Communication</li>
+          </ul>
+        </div>
+        <div class="tab-contents" id="Experience">
+          <ul>
+            <li><span>Intern - IT Staff</span><br>Management Information System <br>City Hall, Samonte Park, Cavite City</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- --SERVICES-- -->
+<div id="services">
+  <div class="containet">
+    <h1 class="sub-title">My Services</h1>
+    <div class="services-list">
+      <div>
+        <i class="fa-solid fa-code"></i>
+        <h2>Web Designing</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed nulla nibh, tincidunt sit amet sapien quis.
+          <a href="">Learn more</a>
+        </p>
+      </div>
+      <div>
+        <i class="fa-solid fa-crop"></i>
+        <h2>UI/UX Designing</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed nulla nibh, tincidunt sit amet sapien quis.
+          <a href="">Learn more</a>
+        </p>
+      </div>
+      <div>
+        <i class="fa-solid fa-file"></i>
+        <h2>Docu</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed nulla nibh, tincidunt sit amet sapien quis.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- --PORTFOLIO-- -->
+<div class="portfolio">
+  <div class="container">
+    <h1 class="sub-title">My Work</h1>
+    <div class="work-list">
+      <div class="work">
+        <img src="images/work-1.png">
+        <div class="layer">
+          <h3>Social Media App</h3>
+          <p>The app connects you and the talented people around the world. Download it from play store.</p>
+          <a href=""><i class="fa-solid fa-link"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="images/work-2.png">
+        <div class="layer">
+          <h3>Music App</h3>
+          <p>The app connects you and the talented people around the world. Download it from play store.</p>
+          <a href=""><i class="fa-solid fa-link"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="images/work-3.png">
+        <div class="layer">
+          <h3>Online App</h3>
+          <p>The app connects you and the talented people around the world. Download it from play store.</p>
+          <a href=""><i class="fa-solid fa-link"></i></a>
+        </div>
+      </div>
+    </div>
+    <a href="" class="btn">See more</a>
+  </div>
+</div>
+
+<!-- --CONTACT-- -->
+<div class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="contact-left">
+        <h1 class="sub-title">Contact</h1>
+        <p><i class="fa-solid fa-paper-plane"></i> email@gmail.com</p>
+        <p><i class="fa-solid fa-square-phone"></i> 09759943213</p>
+        <div class="social-icons">
+          <a href=""><i class="fa-brands fa-facebook"></i></a>
+          <a href=""><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <a href="images/Daniel Resume 2024.pdf" download class="btn btn2">Check my CV</a>
+      </div>
+      <div class="contact-right">
+        <form>
+          <input type="text" name="Name" placeholder="Enter your Name" required>
+          <input type="email" name="Email" placeholder="Enter your Email" required>
+          <textarea name="message" rows="6" placeholder="Enter your Message" required></textarea>
+          <button type="submit" class="btn btn2">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>Copyright Elijah - Personal Portfolio <i class="fa-solid fa-thumbs-up"></i></p> 
+  </div>
+</div>
+
+<script>
+  var tablinks = document.getElementsByClassName("tab-links");
+  var tabcontents = document.getElementsByClassName("tab-contents");
+  function opentab(tabname){
+    for(tablink of tablinks){
+      tablink.classList.remove("active-link");
+    }
+    for(tabcontent of tabcontents){
+      tabcontent.classList.remove("active-tab");
+    }
+    event.currentTarget.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab");
+  }
+</script>
+
+</body>
+</html> 
