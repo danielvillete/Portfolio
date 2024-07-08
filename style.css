@@ -416,26 +416,7 @@ form .btn2{
 }
 
 /*-- FOOTER --*/
-footer {
-  background: #262626;
-  color: #fff;
-  text-align: center;
-  padding: 30px 0;
-  position: relative;
-  width: 100%;
-}
 
-footer .copyright {
-  font-weight: 300;
-}
-
-footer i {
-  color: #ff18d8;
-}
-
-footer .copyright {
-  margin-left: 0;
-}
 
 @media only screen and (max-width: 600px) {
   .header-text {
