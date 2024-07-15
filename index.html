@@ -19,9 +19,9 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#contact">Contact</a></li>
-          <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+          <i class="fas fa-times" onclick="closemenu()"></i>
         </ul>
-        <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        <i class="fas fa-bars" onclick="openmenu()"></i>
       </nav>
       <div class="header-text">
         <h1>Daniel Villete | <span></span></h1>
@@ -53,28 +53,47 @@
             <li><span>Information Technology</span><br>2019-2024</li>
           </ul>
         </div>
-        <div class="tab-contents bullet" id="Skills">
-          <ul>
-            <li><span>IT: </span><br>Designing Web, App, and System UX/UI</li>
-            <li>Programming in Python, HTML, CSS, and PHP</li>
-            <li>Photo/Video Editing in Adobe Photoshop, Canva, and Capcut</li>
-            <li>Knowledgeable of Microsoft word, Powerpoint, and Excel</li>
-            <li><span>Personal: </span><br>Excellent in English Communication</li>
-            <li>Active Listener and Adaptability</li>
-            <li>Leadership and Team Player</li>
-          </ul>
-        </div>
-        <div class="tab-contents" id="Experience">
-          <ul>
-            <li><span>Intern - IT Staff</span><br>Management Information System <br>City Hall, Samonte Park, Cavite City</li>
-            <li><span>Duties: </span><br>IT Support for maintenance of the work place (Router, Cables, etc.)</li>
-            <li>Handling concerns personally and landline</li>
-            <li>Evaluating Thesis of IT Students (Website, App, System)</li>
-            <li>Data Entry in System for one office</li>
-            <li>Programming using Python</li>
-            <li>Presentations of learnings during Intern/Training</li>
-          </ul>
-        </div>
+<div class="tab-contents" id="Skills">
+  <ul>
+    <li>
+      <span>IT:</span>
+      <ul>
+        <li>• Designing Web, App, and System UX/UI</li>
+        <li>• Programming in Python, HTML, CSS, and PHP</li>
+        <li>• Photo/Video Editing in Adobe Photoshop, Canva, and Capcut</li>
+        <li>• Knowledgeable of Microsoft Word, PowerPoint, and Excel</li>
+        <li>• Ethernet Cabling and configuration of internet</li>
+      </ul>
+    </li>
+    <li>
+      <span>Personal:</span>
+      <ul>
+        <li>• Excellent in English Communication</li>
+        <li>• Active Listener and Adaptability</li>
+        <li>• Leadership and Team Player</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div class="tab-contents" id="Experience">
+  <ul>
+    <li>
+      <span>Intern - IT Staff</span><br>
+      Management Information System<br>
+      City Hall, Samonte Park, Cavite City
+      <ul>
+        <li>• IT Support for maintenance of the workplace (Router, Cables, etc.)</li>
+        <li>• Handling concerns personally and via landline</li>
+        <li>• Handling daily supports such as desktop troubleshooting/cleaning, internet cable management, software/windows installation and update, and configuration of router</li>
+        <li>• Evaluating Thesis of IT Students (Website, App, System)</li>
+        <li>• Data Entry in System for one office</li>
+        <li>• Programming using Python</li>
+        <li>• Presentations of learnings during Intern/Training</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
       </div>
     </div>
   </div>
@@ -88,26 +107,26 @@
         <i class="fa-solid fa-code"></i>
         <h2>Web Design</h2>
         <p>Crafting visually and user-friendly designs tailored to meet your unique needs.</p>
-        <a href="">Learn more</a>
+        <a href="#portfolio">Learn more</a>
       </div>
       <div>
         <i class="fa-solid fa-crop"></i>
         <h2>UI/UX Design</h2>
         <p>Transforming your ideas to aesthetically pleasing designs with Figma/Axure RP.</p>
-        <a href="">Learn more</a>
+        <a href="#portfolio">Learn more</a>
       </div>
       <div>
         <i class="fa-solid fa-file"></i>
         <h2>Documents</h2>
         <p>Get your documents done ahead of time with Microsoft Words, Excel, or Power Point.</p>
-        <a href="">Learn more</a>
+        <a href="#portfolio">Learn more</a>
       </div>
     </div>
   </div>
 </div>
 
 <!-- --PORTFOLIO-- -->
-<div class="portfolio">
+<div id="portfolio">
   <div class="container">
     <h1 class="sub-title">My Work</h1>
     <div class="work-list">
@@ -140,7 +159,7 @@
   </div>
 </div>
 <!-- --CONTACT-- -->
-<div class="contact">
+<div id="contact">
   <div class="container">
     <div class="row">
       <div class="contact-left">
@@ -154,12 +173,13 @@
         <a href="images/Daniel Resume 2024.pdf" download class="btn btn2">Check my CV</a>
       </div>
       <div class="contact-right">
-        <form>
+        <form name="submit-to-google-sheet">
           <input type="text" name="Name" placeholder="Enter your Name" required>
           <input type="email" name="Email" placeholder="Enter your Email" required>
-          <textarea name="message" rows="6" placeholder="Enter your Message" required></textarea>
+          <textarea name="Message" rows="6" placeholder="Enter your Message" required></textarea>
           <button type="submit" class="btn btn2">Submit</button>
         </form>
+        <span id="msg"></span>
       </div>
     </div>
   </div>
@@ -168,7 +188,6 @@
     &copy; 2024 Elijah Personal Portfolio. All Rights Reserved. <i class="fa fa-heart"></i>
   </div>
 </div>
-
 
 <script>
   var tablinks = document.getElementsByClassName("tab-links");
@@ -186,12 +205,34 @@
 </script>
 <script>
   var sidemenu = document.getElementById("sidemenu")
+
   function openmenu(){
     sidemenu.style.right = "0";
   }
   function closemenu(){
     sidemenu.style.right = "-200px";
   } 
+</script>
+<form name="submit-to-google-sheet">
+</form>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbx_7PSBkGLNIhFpbAc18AIDJD2ztDvA6dwz7vYSOBDH0l7BmOAUIWlOH2MGUkVfKDQD1Q/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message sent successfully"
+        setTimeout(function(){
+          msg.innerHTML = ""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
 </script>
 </body>
 </html> 
