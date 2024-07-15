@@ -132,7 +132,6 @@ nav ul li a:hover::after{
 /*-- ABOUT --*/
 #about{
   padding: 80px 0;
-  padding-left: 100px;
   color: #ababab;
   background-image: url(images/bg.jpg);
   background-size: cover;
@@ -490,8 +489,12 @@ nav .fas{
     font-size: 16px;
     margin-right: 20px;
   }
+  .about-col-2 p{
+    font-size: 20px;
+  }
   .contact-left, .contact-right{
     flex-basis: 100%;
+    
   }
   .copyright{
     font-size: 14px;
