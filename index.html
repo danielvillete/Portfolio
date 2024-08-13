@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to my personal portfolio">
   <title>Daniel Villete - Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/eb164d029f.js" crossorigin="anonymous"></script>
+  
 </head>
 <body>
   <div id="header">
@@ -134,7 +136,23 @@
         <div class="layer">
           <h3>Hiring Photo Edit</h3>
           <p>Made with Adobe Photoshop with, using stock images from internet. </p>
-          <a href=""><i class="fa-solid fa-link"></i></a>
+          <a href="images/hiring.jpg" target="_blank"><i class="fa-solid fa-link"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="images/schoollogo.jpg">
+        <div class="layer">
+          <h3>School Logo</h3>
+          <p>Made with Adobe Photoshop and Dog logo from Google</p>
+          <a href="images/schoollogo.jpg" target="_blank"><i class="fa-solid fa-link"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="images/csr hiring.jpg">
+        <div class="layer">
+          <h3>Customer Service Representative Hiring Photo Edit</h3>
+          <p>Made with Adobe Photoshop and CSR from Google</p>
+          <a href="images/csr hiring.jpg" target="_blank"><i class="fa-solid fa-link"></i></a>
         </div>
       </div>
       <div class="work">
@@ -169,13 +187,6 @@
           <a href="https://danielvillete.github.io/Jamir/" target="_blank"><i class="fa-solid fa-link"></i></a>
         </div>
       </div>
-      <div class="work">
-        <img src="images/schoollogo.jpg">
-        <div class="layer">
-          <h3>School Logo</h3>
-          <p>Made with Adobe Photoshop and Dog logo from Google</p>
-        </div>
-      </div>
     </div>
     <a href="" class="btn">See more</a>
   </div>
@@ -192,15 +203,18 @@
           <a href="https://web.facebook.com/itsbadvibesforever" target="_blank"><i class="fa-brands fa-facebook"></i></a>
           <a href="https://www.linkedin.com/in/danielvillete" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
         </div>
-        <a href="images/Daniel Villete Resume 2024.pdf" download class="btn btn2">Check my CV</a>
+        <a href="images/Daniel Updated Resume 2024.pdf" download class="btn btn2">Check my CV</a>
       </div>
       <div class="contact-right">
-        <form name="submit-to-google-sheet">
+        <form name="submit-to-google-sheet" method="post">
           <input type="text" name="Name" placeholder="Enter your Name" required>
           <input type="email" name="Email" placeholder="Enter your Email" required>
           <textarea name="Message" rows="6" placeholder="Enter your Message" required></textarea>
-          <button type="submit" class="btn btn2">Submit</button>
-        </form>
+          <button type="submit" class="btn btn3 " id="submit-btn">
+            Submit
+            <div class="spinner" id="spinner" style="display: none;"></div>
+          </button>
+                  </form>
         <span id="msg"></span>
       </div>
     </div>
@@ -212,6 +226,23 @@
 </div>
 
 <script>
+  document.querySelector('form[name="submit-to-google-sheet"]').addEventListener('submit', function(e) {
+  e.preventDefault(); 
+  const submitButton = document.getElementById('submit-btn');
+  const spinner = document.getElementById('spinner');
+  
+  spinner.style.display = 'inline-block';
+  submitButton.disabled = true;
+
+  setTimeout(function() {
+
+    spinner.style.display = 'none';
+    submitButton.disabled = false;
+
+    document.getElementById('msg').innerText = 'Form submitted successfully!';
+  }, 2000); 
+});
+
   var tablinks = document.getElementsByClassName("tab-links");
   var tabcontents = document.getElementsByClassName("tab-contents");
   function opentab(tabname){
@@ -239,6 +270,7 @@
 </form>
 
 <script>
+  
   const scriptURL = 'https://script.google.com/macros/s/AKfycbx_7PSBkGLNIhFpbAc18AIDJD2ztDvA6dwz7vYSOBDH0l7BmOAUIWlOH2MGUkVfKDQD1Q/exec'
   const form = document.forms['submit-to-google-sheet']
   const msg = document.getElementById("msg")
@@ -255,6 +287,56 @@
       })
       .catch(error => console.error('Error!', error.message))
   })
+
+  function animateServices() {
+      const servicesItems = document.querySelectorAll('.services-list div');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1 
+      });
+
+      servicesItems.forEach((item) => {
+        observer.observe(item);
+      });
+    }
+
+    
+    document.addEventListener('DOMContentLoaded', animateServices);
+    
+    
+    function sendEmailNotification(e) {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var row = e.range.getRow();
+  var data = sheet.getRange(row, 1, 1, sheet.getLastColumn()).getValues();
+  var formResponses = data[0];
+
+
+  var subject = "New Booking Appoinment Submission";
+  var body = "You have a new booking form submission:\n\n";
+
+  var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+  for (var i = 0; i < headers.length; i++) {
+    body += headers[i] + ": " + formResponses[i] + "\n";
+  }
+
+
+  
+  MailApp.sendEmail("danielvillete23@gmail.com", subject, body);
+  }
+
+  function createTrigger() {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet();
+    ScriptApp.newTrigger("sendEmailNotification")
+      .forSpreadsheet(sheet)
+      .onFormSubmit()
+      .create();
+  }
 </script>
 </body>
 </html> 
