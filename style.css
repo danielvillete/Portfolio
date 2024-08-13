@@ -20,7 +20,6 @@ body{
   background-repeat: no-repeat;
   background-position: right center;
 }
-
 .me{
   position: absolute;
   right: 150px;
@@ -129,13 +128,51 @@ nav ul li a:hover::after{
     width: calc(100% + 8px);
   }
 }
+
+
 /*-- ABOUT --*/
+@keyframes popFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply the animations to the respective columns */
+.about-col-1 {
+  animation: popFromLeft 1s ease-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.about-col-2 {
+  animation: popFromRight 1s ease-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
 #about{
   padding: 80px 0;
   color: #ababab;
   background-image: url(images/bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  animation: fadeInUp 2s ease;
 }
 .row{
   display: flex;
@@ -217,6 +254,42 @@ nav ul li a:hover::after{
   list-style-type: square;
 }
 /*-- SERVICES --*/
+@keyframes popUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Initially hide the elements */
+.services-list div {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: none;
+}
+
+/* Apply the animation when the class is added */
+.services-list div.animate {
+  animation: popUp 1s ease-out forwards;
+}
+
+/* Add a delay for staggered effect */
+.services-list div:nth-child(1).animate {
+  animation-delay: 0.1s;
+}
+
+.services-list div:nth-child(2).animate {
+  animation-delay: 0.2s;
+}
+
+.services-list div:nth-child(3).animate {
+  animation-delay: 0.3s;
+}
+
 #services{
   padding: 100px 0;
   margin-top: 20px;
@@ -319,12 +392,14 @@ nav ul li a:hover::after{
   border-radius: 50%;
   text-align: center;
 }
+
 .work:hover img{
   transform: scale(1.1);
 }
 .work:hover .layer{
   height: 100%;
 }
+
 
 .btn{
   display: block;
@@ -342,6 +417,24 @@ nav ul li a:hover::after{
 }
 
 /*-- CONTACT --*/
+/* Spinner Styles */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #ff18d8;
+  animation: spin 1s ease-in-out infinite;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .contact-left{
   flex-basis: 35%;
   margin-top: 50px;
@@ -377,6 +470,12 @@ nav ul li a:hover::after{
 .btn.btn2{
   display: inline-block;
   background: #ff18d8;
+}
+.btn.btn3{
+  display: inline-block;
+  background: #ff00d4;
+  padding: 20px 100px;
+  font-size: 18px;
 }
 .contact-right form{
   margin-top: 50px;
@@ -442,7 +541,7 @@ nav .fas{
     background-image: url(images/cp.jpg);
   }
   .header-text{
-    margin-top: 100%;
+    margin-top: 60%;
     font-size: 16px;
   }
   .header-text h1{
@@ -452,6 +551,10 @@ nav .fas{
     display: block;
     font-size: 25px;
   }
+  .header-text h1 span{
+    white-space: pre;
+  }
+
   nav ul{
     background: #ff004f;
     position: fixed;
